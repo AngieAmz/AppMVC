@@ -1,0 +1,30 @@
+﻿@using System.Data
+@model DataTable
+@{
+    ViewBag.Title = "Administrar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br/>
+<br/>
+    <div class="modal-title">
+        <h1>Catalogo de Productos</h1>
+    </div>
+    <div class="contenedor">
+        @foreach (DataRow item in Model.Rows)
+        {
+
+            <br />
+            <div class="col">
+                <div class="image-container">
+                    <img src="@Url.Action("convertirImagen", "Administrador", new { codigo = item["id"] })" />
+                </div>
+                <div class="contenido">
+                    <h4 style="font-weight:600">@item["Descripcion"]</h4>
+                    <h6 style="font-size:14px">$@item["Precio"]</h6>
+                </div>
+            </div>
+
+            
+
+        }
+    </div>

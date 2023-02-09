@@ -1,0 +1,37 @@
+﻿@model prueba_johan.Models.Producto
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Agregar</title>
+</head>
+<body>
+    @using (Html.BeginForm("Add", "Administrador", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="modal-title" style="margin:70px 10px 10px">
+            <h1>Agregar Producto</h1>
+        </div>
+        <br/>
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.TextBox("upload", null, new { type = "file" })
+                @Html.ValidationMessageFor(model => model.Imagen, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <br/>
+        <div class="form-outline mb-4">
+            <input name="Descripcion" type="text" placeholder="Descripcion" class="form-control form-control-lg" />
+        </div>
+        <br/>
+        <div class="form-outline mb-4">
+            <input name="Precio" type="number" placeholder="Precio" class="form-control form-control-lg" />
+        </div>
+        <br/>
+        <input type="submit" value="Cargar" class="btn btn-primary btn-success"/>
+    }
+    <h1 class="alert-danger">@ViewBag.Message</h1>
+</body>
+</html>

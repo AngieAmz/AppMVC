@@ -1,0 +1,45 @@
+﻿@model prueba_johan.Models.Producto
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Editar</title>
+</head>
+<body>
+    <br />
+    <a href="@Url.Action("Admin", "Home")" type="button" class="btn btn-default" style="margin:50px 10px 10px">Volver</a>
+    @using (Html.BeginForm("Edit", "Administrador", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="modal-title" >
+            <h1>Editar Producto</h1>
+        </div>
+        <br />
+        <div class="row">
+            <input name="id" type="number" value="@Model.id" placeholder="id" class="hide" />
+            <img class="img-thumbnail" style="width:300px" src="@Url.Action("convertirImagen", "Administrador", new { codigo = Model.id })" />
+            <br />
+            <div class="form-group" style="margin-bottom:20px">
+                <div class="col-md-10">
+                    <input type="text" class="hide" name="imagen" value="@(Convert.ToBase64String((byte[])Model.Imagen))" />
+                    @Html.TextBox("upload", null, new { type = "file" })
+                    @Html.ValidationMessageFor(Model => Model.Imagen, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <br />
+            <div class="form-outline mb-4">
+                <input name="Descripcion" type="text" value="@Model.Descripcion" placeholder="Descripcion" class="form-control form-control-lg" />
+            </div>
+            <br />
+            <div class="form-outline mb-4">
+                <input name="Precio" type="number" value="@Model.Precio" placeholder="Precio" class="form-control form-control-lg" />
+            </div>
+            <br />
+            <input type="submit" value="Actualizar" class="btn btn-primary btn-success" />
+        </div>
+    }
+    <h1 class="alert-danger">@ViewBag.Message</h1>
+</body>
+</html>

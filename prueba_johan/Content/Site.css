@@ -1,0 +1,47 @@
+﻿@media screen and (max-width: 450px) {
+
+    img {
+        max-width: 100%;
+        object-fit: contain;
+        height: 10em;
+    }
+
+    .col {
+        max-width: 20em;
+        margin-top: 1em;
+    }
+
+    .contenedor {
+        flex-direction: column;
+        grid-column-gap: 1.5em;
+    }
+}
+.contenedor {
+    display:flex;
+    flex-wrap:wrap;
+    padding: 2em 0;
+}
+
+.col {
+    width:235px;
+    align-content:flex-start;
+    justify-content:flex-start;
+    height: 300px;
+    margin: auto;
+    margin-top: 1em;
+    padding: 1em;
+    border-radius: 5px;
+    border: 2px solid #026c7c;
+}
+
+.image-container {
+    text-align: center;
+}
+
+img {
+    max-width: 80%;
+    object-fit: contain;
+    height: 15em;
+}
+
+

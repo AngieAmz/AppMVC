@@ -1,0 +1,42 @@
+﻿@using System.Data
+@model DataTable
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
+}
+
+
+
+    <button class="btn btn-default" style="margin:70px 10px 10px">@Html.ActionLink("Agregar Producto","Add","Administrador")</button>
+
+    <hr />  
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+        <table class="table table-striped" >
+            <tr>
+                <td>Descripcion</td>
+                <td>Precio</td>
+                <td>Imagen</td>
+                <td></td>
+                <td></td>
+            </tr>
+            @foreach (DataRow item in Model.Rows)
+            {
+        <tr>
+            <td>@item["Descripcion"]</td>
+            <td>@item["Precio"]</td>
+            <td>
+                <img class="img-thumbnail" style="width:70px" src="@Url.Action("convertirImagen", "Administrador", new { codigo = item["id"] })" />
+            </td>
+            <td>
+                <a class="btn btn-outline-danger" href="@Url.Action("Edit", "Administrador", new { id = item["id"] })">Editar</a>
+            </td>
+            <td>
+                <a class="btn btn-outline-danger" href="@Url.Action("Delete", "Administrador", new { id = item["id"] })">Eliminar</a>
+            </td>
+        </tr>
+             }
+
+        </table>
+        
+        </div>
+

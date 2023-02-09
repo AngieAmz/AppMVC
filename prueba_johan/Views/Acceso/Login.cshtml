@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+
+
+
+
+<head>
+  
+  
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
+</head>
+
+    <section class="vh-100">
+        <div class="container py-5 h-100">
+            <div class="row d-flex align-items-center justify-content-center h-100">
+                <br/>
+                <div class="col-md-8 col-lg-7 col-xl-5">
+                    <img style="height:60rem !important;" src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" 
+                         class="float-left" alt="klk johan aqui"/>
+                </div>
+                <br />
+                <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+                    <form action="@Url.Action("Login","Acceso")" class="bg-info" style="margin-top: 80px;padding:25px; border-radius:5px" method="post">
+
+                        <div class="modal-title">
+                            <h1>Iniciar Sesión</h1>
+                        </div>
+                        <br />
+                        <!-- Email input -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="form1Example13">Correo Electrónico</label>
+                            <input name="Correo" type="email" id="form1Example13" class="form-control form-control-lg" />
+                        </div>
+
+                        <!-- Password input -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="form1Example23">Contraseña</label>
+                            <input name="Clave" type="password" id="form1Example23" class="form-control form-control-lg" />
+                        </div>
+                        <br />
+                        <br />
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Ingresar</button>
+
+                        <br />
+                        <p>¿Aún no tienes cuenta? <a href="@Url.Action("Registro", "Acceso")">Regístrate</a></p>
+
+                    </form>
+
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
